@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Nisrina Aaliyah Izzah Nuraini</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+               --primary: #5a7d7c;  /* Sophisticated teal */
+                --secondary: #3d5a6c; /* Deep slate blue */
+                --accent: #d8b4a0;   /* Muted peach accent */
+                --light: #f7f9f9;    /* Crisp light background */
+                --dark: #2d3436;     /* Rich dark text */
+                --highlight: #e3f0f0; /* Very subtle highlight */
+                --border: #dfe6e6;   /* Soft borders */
+            -   -transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            background: var(--dark)
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            perspective: 1000px;
+        }
+
+        .cv-wrapper {
+            display: flex;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: var(--transition);
+        }
+
+        .sidebar {
+            width: 35%;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            color: white;
+            padding: 2rem;
+            position: relative;
+            transform-origin: left;
+            transition: var(--transition);
+        }
+
+        .main-content {
+            width: 65%;
+            padding: 2rem;
+            background: white;
+            transform-origin: right;
+            transition: var(--transition);
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 2rem;
+            transform: translateZ(20px);
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid var(--accent);
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--accent), #fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: var(--bg-color);
+            text-transform: uppercase;
+            text-shadow: none;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+            color: var(--accent);
+            position: relative;
+            display: inline-block;
+        }
+
+        h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+
+        .contact-info p:hover {
+            transform: translateX(5px);
+        }
+
+        .contact-info i {
+            width: 25px;
+            color: var(--accent);
+            margin-right: 10px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skills-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 25px;
+            transition: var(--transition);
+        }
+
+        .skills-list li:hover {
+            transform: translateX(5px);
+            color: var(--accent);
+        }
+
+        .skills-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px) rotate(10deg);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--primary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            transform-origin: left center;
+            cursor: pointer;
+        }
+
+        .timeline-item:hover {
+            transform: scale(1.02) translateX(10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 25px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--primary);
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .hobbies-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .hobby-item {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            cursor: default;
+        }
+
+        .hobby-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(106, 90, 205, 0.4);
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(106, 90, 205, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(106, 90, 205, 0.4);
+        }
+
+        .download-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent) 0%, #ff1493 100%);
+            z-index: 1;
+            transition: var(--transition);
+            opacity: 0;
+        }
+
+        .download-btn:hover::after {
+            opacity: 1;
+        }
+
+        .download-btn span {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .modal.show .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cv-wrapper {
+                flex-direction: column;
+            }
+            
+            .sidebar, .main-content {
+                width: 100%;
+            }
+            
+            .sidebar {
+                padding: 1.5rem;
+            }
+            
+            .main-content {
+                padding: 1.5rem;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cv-wrapper">
+            <div class="sidebar">
+                <div class="profile-section animate">
+                    <img src="WhatsApp Image 2025-05-20 at 11.42.27 (3).jpeg" alt="Profile" class="profile-img" id="profile-img">
+                    <h1>Nisrina Aaliyah Izzah Nuraini</h1>
+                    <h2>Teknik Komputer & Jaringan</h2>
+                </div>
+                
+                <div class="contact-info animate delay-1">
+                    <h3>Kontak</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jln Lancar IV,No.04,Kel.sumur batu,kec.kemayoran,Jakarta Pusat</p>
+                    <p><i class="fas fa-phone"></i> +62 856-9120-9197</p>
+                    <p><i class="fas fa-envelope"></i> lin062384@gmail.com</p>
+                </div>
+                
+                <div class="skills animate delay-2">
+                    <h3>Skills</h3>
+                    <ul class="skills-list">
+                        <li>Microsoft Word</li>
+                        <li>Adobe Photoshop</li>
+                        <li>Adobe Illustrator</li>
+                        <li>Pengoperasian Mesin Printer</li>
+                        <li>Pengoperasian Mesin foto copy</li>
+                    </ul>
+                </div>
+                
+                <div class="social animate delay-3">
+                    <h3>Sosial Media</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                         <div class="data">
+                                www.nisrina.com
+                            </div>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                         <div class="data">
+                                alia0303
+                            </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="main-content">
+                <div class="about-section animate">
+                    <h3>Tentang Saya</h3>
+                    <p>Siswa SMKN 54 JAKARTA dengan minat di bidang desain serta pemahaman dasar dalam Teknik Komputer dan Jaringan (TKJ). Memiliki kemampuan bekerja dalam tim dan beradaptasi dengan baik dalam lingkungan kerja yang kolaboratif.</p>
+                </div>
+                
+                <div class="experience-section animate delay-1">
+                    <h3>Pengalaman</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2024 - 2025</div>
+                            <div class="timeline-title">Training LKS 2024</div>
+                            <p>Mengikuti pelatihan dan pengembangan keterampilan dalam bidang kompetisi terkait.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2025</div>
+                            <div class="timeline-title">Lomba Poster siswa berintegritas</div>
+                            <p>Berpartisipasi dalam lomba desain poster yang menekankan kreativitas dan pesan moral.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2025</div>
+                            <div class="timeline-title">Photoshop Bootcamp</div>
+                            <p>Berpartisipasi dalam bootcamp desain menggunakan Adobe Photoshop.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="education-section animate delay-2">
+                    <h3>Pendidikan</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2014 - 2020</div>
+                            <div class="timeline-title">SDN 15 Petang</div>
+                            <p>Lulus dengan nilai luamyan memuaskan</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2020 - 2023</div>
+                            <div class="timeline-title">SMP 152 Jakarta</div>
+                            <p>Lulus dengan nilai lumayan memuaskan</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2023 - Sekarang</div>
+                            <div class="timeline-title">SMKN 54 Jakarta</div>
+                            <p>Jurusan Teknik Komputer dan Jaringan</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hobbies-section animate delay-3">
+                    <h3>Hobi</h3>
+                    <div class="hobbies-container">
+                        <div class="hobby-item">Membaca</div>
+                        <div class="hobby-item">Editing</div>
+                        <div class="hobby-item">Gambar</div>
+                    </div>
+                </div>
+                 
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal" id="image-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Profile" style="width:100%; border-radius:8px;">
+        </div>
+    </div>
+    
+    <script>
+        // Profile image click modal
+        const profileImg = document.getElementById('profile-img');
+        const modal = document.getElementById('image-modal');
+        const closeModal = document.getElementById('close-modal');
+        
+        profileImg.addEventListener('click', () => {
+            modal.classList.add('show');
+        });
+        
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+        
+        
+        // Animate elements when scrolling
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        document.addEventListener('DOMContentLoaded', animateOnScroll);
+    </script>
+</body>
+</html>
